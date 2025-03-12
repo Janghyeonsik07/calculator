@@ -1,4 +1,4 @@
-# ch 6.2.1 ui.py
+# ch 6.3.1 ui.py
 from PyQt5.QtWidgets import (QApplication, QWidget, QPushButton, QVBoxLayout, QMessageBox, QPlainTextEdit, QHBoxLayout, QLineEdit, QComboBox) # QLIneEdit, QComboBox 추
 from PyQt5.QtGui import QIcon
 from PyQt5 import QtCore # 모듈 추가
@@ -13,11 +13,13 @@ class View(QWidget):
         self.te1=QPlainTextEdit()
         self.te1.setReadOnly(True)
 
-        self.btn1 = QPushButton('Message', self)
+        self.btn1 = QPushButton('Calc', self) # 버튼1 이름을 'Calc'로 변경
         self.btn2=QPushButton('Clear', self)
 
         self.le1=QLineEdit('0', self) # 라인 에디트1 추가
         self.le1.setAlignment(QtCore.Qt.AlignRight) # 라인 에디트1 문자열 배치 설정 (오른쪽 정렬)
+        self.le1.setFocus(True) # 라인 에디트1에 포커스 설정
+        self.le1.selectAll() # 텍스트 전체 선택 
 
         self.le2=QLineEdit('0', self) # 라인 에디트2 추가
         self.le2.setAlignment(QtCore.Qt.AlignRight) # 라인 에디트2 문자열 배치 설정 (오른쪽 정렬)
@@ -48,7 +50,7 @@ class View(QWidget):
         self.resize(256,256)
         self.show()
 
-    def activateMessage(self, text):
+    def setDisplay(self, text): # 메서드 이름 변경
         self.te1.appendPlainText(text)
 
     def clearMessage(self):
