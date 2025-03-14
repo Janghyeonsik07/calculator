@@ -1,4 +1,4 @@
-# ch 7.1.3 ctrl.py
+# ch 7.5.1 ctrl.py
 class Control:
 
     def __init__(self, view):
@@ -31,7 +31,10 @@ class Control:
         return a*b
     
     def div(self, a, b): # 나눗셈 함수 추가
-        return a/b
+        if (b==0):
+            return 0
+        else:
+            return a/b
     
     def pow(self, a, b): # 제곱 연산 함수 추가
         return pow(a, b)
